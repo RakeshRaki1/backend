@@ -16,7 +16,7 @@ spec:
   spec:
     containers:
     - name: contactbackendcontainer
-      image: contact_backend_app
+      image: rakeshraki1/backend
       ports:
       - containerPort: 8080
 ---
@@ -25,11 +25,10 @@ kind: Service
 metadata:
  name: contactbackendsvc
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
    app: contactbackend
   ports:
    - port: 80
      targetPort: 8080
-     nodePort: 30001
 ...
